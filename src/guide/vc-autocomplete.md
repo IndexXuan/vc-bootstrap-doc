@@ -1,22 +1,22 @@
 ---
-title: vc-dialog
+title: vc-autocomplete
 type: guide
-order: 19
+order: 10
 ---
 
-* [github](https://github.com/iwaimai-bi-fe/vc-dialog)
-* [npm](https://www.npmjs.com/package/vc-dialog)
-* [download](https://github.com/iwaimai-bi-fe/vc-dialog/archive/master.zip)
+* [github](https://github.com/iwaimai-bi-fe/vc-autocomplete)
+* [npm](https://www.npmjs.com/package/vc-autocomplete)
+* [download](https://github.com/iwaimai-bi-fe/vc-autocomplete/archive/master.zip)
 
 ## Install
 
 ```npm
-npm install vc-dialog --save
+npm install vc-autocomplete --save
 ```
 
 ```html
-//global varibale  vcdialog
-<script src='../dist/vc-dialog.js'></script>
+//global varibale  vcautocomplete
+<script src='../dist/vc-autocomplete.js'></script>
 ```
 
 ## Usage
@@ -25,21 +25,21 @@ npm install vc-dialog --save
 
 ### okText
 
-custom the ok dialog text.
+custom the ok autocomplete text.
 
 * default: `确定`
 * type: `String`
 
 ### cancelText
 
-custom the cancel dialog text.
+custom the cancel autocomplete text.
 
 * default: `取消`
 * type: `String`
 
 ### visiable
 
-control the visiable of dialog.
+control the visiable of autocomplete.
 
 * default: `false`
 * type: `Boolean` 
@@ -64,8 +64,8 @@ the callback of onCancel
 ```js
 import Vue from 'vue'
 import {
-        vcdialog
-    } from '../dist/vc-dialog.js'
+        vcautocomplete
+    } from '../dist/vc-autocomplete.js'
 
 new Vue({
     el: '#app',
@@ -77,7 +77,7 @@ new Vue({
         }
     },
     components: {
-        vcdialog
+        vcautocomplete
     },
     methods: {
         onOk () {
@@ -93,7 +93,7 @@ new Vue({
 ```
 
 ```vue
-<vc-dialog 
+<vc-autocomplete 
     :visible='isShow'
     :okText='okText'
     :cancelText='cancelText'
@@ -102,5 +102,5 @@ new Vue({
     <div class="your-html">
         
     </div>     
-</vc-dialog>
+</vc-autocomplete>
 ```

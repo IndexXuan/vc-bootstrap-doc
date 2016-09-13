@@ -1,22 +1,22 @@
 ---
-title: vc-dialog
+title: vc-backtop
 type: guide
-order: 19
+order: 26
 ---
 
-* [github](https://github.com/iwaimai-bi-fe/vc-dialog)
-* [npm](https://www.npmjs.com/package/vc-dialog)
-* [download](https://github.com/iwaimai-bi-fe/vc-dialog/archive/master.zip)
+* [github](https://github.com/iwaimai-bi-fe/vc-backtop)
+* [npm](https://www.npmjs.com/package/vc-backtop)
+* [download](https://github.com/iwaimai-bi-fe/vc-backtop/archive/master.zip)
 
 ## Install
 
 ```npm
-npm install vc-dialog --save
+npm install vc-backtop --save
 ```
 
 ```html
-//global varibale  vcdialog
-<script src='../dist/vc-dialog.js'></script>
+//global varibale  vcbacktop
+<script src='../dist/vc-backtop.js'></script>
 ```
 
 ## Usage
@@ -25,21 +25,21 @@ npm install vc-dialog --save
 
 ### okText
 
-custom the ok dialog text.
+custom the ok backtop text.
 
 * default: `确定`
 * type: `String`
 
 ### cancelText
 
-custom the cancel dialog text.
+custom the cancel backtop text.
 
 * default: `取消`
 * type: `String`
 
 ### visiable
 
-control the visiable of dialog.
+control the visiable of backtop.
 
 * default: `false`
 * type: `Boolean` 
@@ -64,8 +64,8 @@ the callback of onCancel
 ```js
 import Vue from 'vue'
 import {
-        vcdialog
-    } from '../dist/vc-dialog.js'
+        vcbacktop
+    } from '../dist/vc-backtop.js'
 
 new Vue({
     el: '#app',
@@ -77,7 +77,7 @@ new Vue({
         }
     },
     components: {
-        vcdialog
+        vcbacktop
     },
     methods: {
         onOk () {
@@ -93,7 +93,7 @@ new Vue({
 ```
 
 ```vue
-<vc-dialog 
+<vc-backtop 
     :visible='isShow'
     :okText='okText'
     :cancelText='cancelText'
@@ -102,5 +102,5 @@ new Vue({
     <div class="your-html">
         
     </div>     
-</vc-dialog>
+</vc-backtop>
 ```

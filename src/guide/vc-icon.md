@@ -1,0 +1,86 @@
+---
+title: vc-icon
+type: guide
+order: 2
+---
+
+* [github](https://github.com/iwaimai-bi-fe/vc-icon)
+* [npm](https://www.npmjs.com/package/vc-icon)
+* [download](https://github.com/iwaimai-bi-fe/vc-icon/archive/master.zip)
+
+## Install
+
+```npm
+npm install vc-icon --save
+```
+
+``` js
+import vcIcon from 'vc-icon' // bundle & build version
+import vcIcon from 'vc-icon/src' // recommand for *.vue project
+```
+
+``` js 
+// CommonJS
+require('dist/build.min.js')
+```
+
+```html
+// script tag
+<script src='dist/build.min.js'></script>
+```
+
+## Usage
+
+## props
+
+### type 
+
+name of icon, full Bootstrap [Glyphicons Halflings](http://glyphicons.com/) icons support
+
+* type: `String`
+
+### shape 
+
+shape of icon
+
+* default: `circle`
+* enum: `circle | other`
+* type: `String`
+
+### size 
+
+icon size
+
+* default: `small`
+* enum: `large | middle | small | mini | Number`
+* type: `String|Number` 
+
+## example
+
+``` js
+import Vue from 'vue'
+import vcIcon from 'vc-icon/src'
+
+new Vue({
+    el: '#app',
+    data () {
+        return {
+            type: 'ok',
+            shape: 'circle',
+            size: 'large'
+        }
+    },
+    components: {
+        vcIcon
+    }
+})
+```
+
+``` html 
+<vc-icon 
+    :type="type"
+    :shape="shape"
+    :size="large"
+>
+</vc-icon>
+```
