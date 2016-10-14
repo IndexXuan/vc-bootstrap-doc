@@ -10,52 +10,65 @@ order: 7
 
 ## Install
 
-```npm
+``` npm
 npm install vc-radio --save
 ```
 
-```html
-//global varibale  vcradio
-<script src='../dist/vc-radio.js'></script>
+``` js
+import vcRadio from 'vc-radio' // build version
+import vcRadio from 'vc-radio/src/Radio.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### name
 
-custom the ok radio text.
+* type: `String`,
+* default: `null`
 
-* default: `确定`
+### label
+
 * type: `String`
 
-### cancelText
+### type
 
-custom the cancel radio text.
+* type: `String`,
+* default: `null`
 
-* default: `取消`
-* type: `String`
+### value
 
-### visiable
+* default: `true`
 
-control the visiable of radio.
+### checked
 
+* twoWay: `true`
+
+### button
+
+* type: `Boolean`,
 * default: `false`
-* type: `Boolean` 
 
-### onOk | optional
+### disabled
 
-the callback for onOk.
+* type: `Boolean`,
+* default: `false`
 
-* type: `Function`
+### readonly
 
-### onCancel | optional
-
-the callback of onCancel
-
-* type: `Function`
-
+* type: `Boolean`,
+* default: `false`
 
 ## example
 
@@ -63,44 +76,41 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcradio
-    } from '../dist/vc-radio.js'
+import vcRadio from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            label: '选择2',
+            value: true,
+            button: true,
+            type: 'success',
+            checked: true,
+            disabled: false,
+            readonly: false
         }
     },
     components: {
-        vcradio
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcRadio
     }
 })
 ```
 
-```vue
-<vc-radio 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
-</vc-radio>
+```html
+<vc-radio
+    :label="label"
+    :checked.sync="checked"
+    :value="value"
+    :button="button"
+    :type="type"
+    :disabled="disabled"
+    :readonly="readonly"
+>
+    选择1
+</vc-radio>(slot)
 ```

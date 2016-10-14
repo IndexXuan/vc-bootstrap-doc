@@ -10,52 +10,50 @@ order: 11
 
 ## Install
 
-```npm
+``` npm
 npm install vc-dropdown --save
 ```
 
-```html
-//global varibale  vcdropdown
-<script src='../dist/vc-dropdown.js'></script>
+``` js
+import vcDropdown from 'vc-dropdown' // build version
+import vcDropdown from 'vc-dropdown/src/Dropdown.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### label
 
-custom the ok dropdown text.
+* type: `String`,
+* default: `'下拉菜单'`
 
-* default: `确定`
-* type: `String`
+### menus
 
-### cancelText
+* type: `Object`,
+* default: `
+    'menu0': '下拉菜单0',
+    'menu1': '下拉菜单1',
+    'menu2': '下拉菜单2'
+    `
 
-custom the cancel dropdown text.
+### open
 
-* default: `取消`
-* type: `String`
+* type: `Boolean`,
+* default: `false` 
 
-### visiable
-
-control the visiable of dropdown.
-
-* default: `false`
-* type: `Boolean` 
-
-### onOk | optional
-
-the callback for onOk.
-
+### onClick
 * type: `Function`
-
-### onCancel | optional
-
-the callback of onCancel
-
-* type: `Function`
-
 
 ## example
 
@@ -63,44 +61,55 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcdropdown
-    } from '../dist/vc-dropdown.js'
+import vcDropdown from '../dist/build.js'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            useSlot: true,
+            label: '下拉菜单',
+            open: true,
+            customClick (value) {
+                alert('自定义点击回调, value = ' + value)
+                console.log('自定义点击回调', value)
+            },
+            onClick (key, value, index) {
+                alert('点击回调' + index)
+                console.log('点击回调', key, value, index)
+            }
         }
     },
     components: {
-        vcdropdown
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcDropdown
     }
 })
 ```
 
-```vue
-<vc-dropdown 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+```html
+<vc-dropdown
+    v-if="useSlot"
+    :label="label"
+    :open="open"
+>
+    <a class="dropdown-toggle dropdown-trigger" data-dropdown-trigger="vc-dropdown">
+        <span>下拉菜单自定义</span>
+        <span class="caret"></span>
+    </a>
+    <ul slot="dropdown-menu" class="dropdown-menu">
+        <li @click="customClick(1)"><a>用户手机号</a></li>
+        <li @click="customClick(2)"><a>用户ID</a></li>
+    </ul>
 </vc-dropdown>
+
+<vc-dropdown
+    v-if="!useSlot"
+    :label="label"
+    :open="open"
+    :on-click="onClick"
+></vc-dropdown>
 ```

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>vc-dialog - vc-bootstrap</title>
+        <title>vc-popover - vc-bootstrap</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue component library -- vc-bootstrap">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -153,7 +153,7 @@
                 </li>
             
                 <li>
-                    <a href="/vc-bootstrap-doc/guide/vc-dialog.html" class="sidebar-link current">vc-dialog</a>
+                    <a href="/vc-bootstrap-doc/guide/vc-dialog.html" class="sidebar-link">vc-dialog</a>
                 </li>
             
                 <li>
@@ -161,7 +161,7 @@
                 </li>
             
                 <li>
-                    <a href="/vc-bootstrap-doc/guide/vc-popover.html" class="sidebar-link">vc-popover</a>
+                    <a href="/vc-bootstrap-doc/guide/vc-popover.html" class="sidebar-link current">vc-popover</a>
                 </li>
             
                 <li>
@@ -206,50 +206,64 @@
 
 
 <div class="content guide with-sidebar">
-    <h1>vc-dialog</h1>
+    <h1>vc-popover</h1>
     <ul>
-<li><a href="https://github.com/iwaimai-bi-fe/vc-dialog" target="_blank" rel="external">github</a></li>
-<li><a href="https://www.npmjs.com/package/vc-dialog" target="_blank" rel="external">npm</a></li>
-<li><a href="https://github.com/iwaimai-bi-fe/vc-dialog/archive/master.zip" target="_blank" rel="external">download</a></li>
+<li><a href="https://github.com/iwaimai-bi-fe/vc-popover" target="_blank" rel="external">github</a></li>
+<li><a href="https://www.npmjs.com/package/vc-popover" target="_blank" rel="external">npm</a></li>
+<li><a href="https://github.com/iwaimai-bi-fe/vc-popover/archive/master.zip" target="_blank" rel="external">download</a></li>
 </ul>
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install vc-dialog --save</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line">//global varibale  vcdialog</div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'../dist/vc-dialog.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><h3 id="okText"><a href="#okText" class="headerlink" title="okText"></a>okText</h3><p>custom the ok dialog text.</p>
-<ul>
-<li>default: <code>确定</code></li>
-<li>type: <code>String</code></li>
-</ul>
-<h3 id="cancelText"><a href="#cancelText" class="headerlink" title="cancelText"></a>cancelText</h3><p>custom the cancel dialog text.</p>
-<ul>
-<li>default: <code>取消</code></li>
-<li>type: <code>String</code></li>
-</ul>
-<h3 id="visiable"><a href="#visiable" class="headerlink" title="visiable"></a>visiable</h3><p>control the visiable of dialog.</p>
-<ul>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install vc-popover --save</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> vcPopover <span class="keyword">from</span> <span class="string">'vc-popover'</span> <span class="comment">// build version</span></div><div class="line"><span class="keyword">import</span> vcPopover <span class="keyword">from</span> <span class="string">'vc-popover/src/Popover.vue'</span> <span class="comment">// recommend for *.vue project for small bundle size</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// commonjs</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'./dist/build.min.js'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line">// script tag</div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'dist/build.min.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><h3 id="show"><a href="#show" class="headerlink" title="show"></a>show</h3><ul>
+<li>type: <code>Boolean</code>,</li>
 <li>default: <code>false</code></li>
-<li>type: <code>Boolean</code> </li>
 </ul>
-<h3 id="onOk-optional"><a href="#onOk-optional" class="headerlink" title="onOk | optional"></a>onOk | optional</h3><p>the callback for onOk.</p>
+<h3 id="functionalShow"><a href="#functionalShow" class="headerlink" title="functionalShow"></a>functionalShow</h3><p>函数式显示，此属性配合show来使用，只响应 <code>show</code> prop和控制，不受事件控制</p>
 <ul>
-<li>type: <code>Function</code></li>
+<li>type: <code>Boolean</code>,</li>
+<li>default: <code>false</code></li>
 </ul>
-<h3 id="onCancel-optional"><a href="#onCancel-optional" class="headerlink" title="onCancel | optional"></a>onCancel | optional</h3><p>the callback of onCancel</p>
+<h3 id="trigger"><a href="#trigger" class="headerlink" title="trigger"></a>trigger</h3><p>one of click, hover, focus, contextmenu</p>
 <ul>
-<li>type: <code>Function</code></li>
+<li>type: <code>String</code>,</li>
+<li>default: <code>&#39;click&#39;</code></li>
+</ul>
+<h3 id="closeable"><a href="#closeable" class="headerlink" title="closeable"></a>closeable</h3><ul>
+<li>type: <code>Boolean</code>,</li>
+<li>default: <code>true</code></li>
+</ul>
+<h3 id="effect"><a href="#effect" class="headerlink" title="effect"></a>effect</h3><ul>
+<li>type: <code>String</code>,</li>
+<li>default: <code>&#39;vc-fade&#39;</code></li>
+</ul>
+<h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><ul>
+<li>type: <code>String</code></li>
+</ul>
+<h3 id="content"><a href="#content" class="headerlink" title="content"></a>content</h3><ul>
+<li>type: <code>String</code></li>
+</ul>
+<h3 id="header"><a href="#header" class="headerlink" title="header"></a>header</h3><ul>
+<li>type: <code>Boolean</code>,</li>
+<li>default: <code>true</code></li>
+</ul>
+<h3 id="placement"><a href="#placement" class="headerlink" title="placement"></a>placement</h3><ul>
+<li>type: <code>String</code></li>
 </ul>
 <h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><ul>
 <li>js</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">        vcdialog</div><div class="line">    &#125; <span class="keyword">from</span> <span class="string">'../dist/vc-dialog.js'</span></div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    el: <span class="string">'#app'</span>,</div><div class="line">    data () &#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            isShow: <span class="literal">true</span>,</div><div class="line">            okText: <span class="string">'ok'</span>,</div><div class="line">            cancelText: <span class="string">'cancel'</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">        vcdialog</div><div class="line">    &#125;,</div><div class="line">    methods: &#123;</div><div class="line">        onOk () &#123;</div><div class="line"></div><div class="line">        &#125;,</div><div class="line">        onCancel () &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    ready () &#123;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;vc-dialog </div><div class="line">    :visible=&apos;isShow&apos;</div><div class="line">    :okText=&apos;okText&apos;</div><div class="line">    :cancelText=&apos;cancelText&apos;</div><div class="line">    :onOk=&apos;onOk&apos;</div><div class="line">    :onCancel=&apos;onCancel&apos;&gt;</div><div class="line">    &lt;div class=&quot;your-html&quot;&gt;</div><div class="line">        </div><div class="line">    &lt;/div&gt;     </div><div class="line">&lt;/vc-dialog&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> vcPopover <span class="keyword">from</span> <span class="string">'../src'</span></div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">	el: <span class="string">'#app'</span>,</div><div class="line">	data () &#123;</div><div class="line">		<span class="keyword">return</span> &#123;</div><div class="line">            bools: &#123;</div><div class="line">                <span class="string">'true'</span>: <span class="literal">true</span>,</div><div class="line">                <span class="string">'false'</span>: <span class="literal">false</span></div><div class="line">            &#125;,</div><div class="line">            show: <span class="literal">true</span>,</div><div class="line">            closeable: <span class="literal">false</span> </div><div class="line">		&#125;</div><div class="line">	&#125;,</div><div class="line">    methods: &#123;</div><div class="line">    &#125;,</div><div class="line">	components: &#123;</div><div class="line">        vcPopover</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">vc-popover</span> </span></div><div class="line">    <span class="attr">placement</span>=<span class="string">"left"</span></div><div class="line">    <span class="attr">title</span>=<span class="string">"Title"</span></div><div class="line">    <span class="attr">content</span>=<span class="string">"content"</span></div><div class="line">&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-xs btn-success"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">vc-popover</span>&gt;</span></div></pre></td></tr></table></figure>
 
     
       <div class="guide-links">
         
-          <span>← <a href="/vc-bootstrap-doc/guide/vc-modal.html">vc-modal</a></span>
+          <span>← <a href="/vc-bootstrap-doc/guide/vc-notification.html">vc-notification</a></span>
         
         
-          <span style="float:right"><a href="/vc-bootstrap-doc/guide/vc-notification.html">vc-notification</a> →</span>
+          <span style="float:right"><a href="/vc-bootstrap-doc/guide/vc-tooltip.html">vc-tooltip</a> →</span>
         
       </div>
     

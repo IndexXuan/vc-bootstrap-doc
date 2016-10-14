@@ -10,52 +10,101 @@ order: 9
 
 ## Install
 
-```npm
+``` npm
 npm install vc-easyclearinput --save
 ```
 
-```html
-//global varibale  vceasyclearinput
-<script src='../dist/vc-easyclearinput.js'></script>
+``` js
+import vcEasyclearinput from 'vc-easyclearinput' // build version
+import vcEasyclearinput from 'vc-easyclearinput/src/Easyclearinput.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### type
 
-custom the ok easyclearinput text.
+* type: `String`,
+* default: `'text'`
 
-* default: `确定`
+### value
+
+* twoWay: `true`,
+
+### label
 * type: `String`
 
-### cancelText
+### placeholder
 
-custom the cancel easyclearinput text.
-
-* default: `取消`
 * type: `String`
 
-### visiable
+### infoText
+    
+* type: `String`,
+* default: `''`
 
-control the visiable of easyclearinput.
+### disabled
 
+* type: `Boolean`,
 * default: `false`
-* type: `Boolean` 
 
-### onOk | optional
+### readonly
 
-the callback for onOk.
+* type: `Boolean`,
+* default: `false`
 
-* type: `Function`
 
-### onCancel | optional
+### autofocus
 
-the callback of onCancel
+* type: `Boolean`,
+* default: `false`
 
-* type: `Function`
+### width
 
+* type: `Number | String`,
+* default: '250' 
+
+### icon
+
+* type: `Boolean`,
+* default: `false`
+
+### status
+
+* type: `String`,
+* default: `''`
+
+### onFocus
+
+### focus回调
+
+* type: `Function`,
+* default: `function () {}`
+
+### onBlur
+
+### blur回调
+
+* type: `Function`,
+* default: `function () {}`
+
+### onClear
+
+### onClear回调
+
+* type: `Function`,
+* default: `function () {}`
 
 ## example
 
@@ -63,44 +112,71 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vceasyclearinput
-    } from '../dist/vc-easyclearinput.js'
+import vcEasyclearinput from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            noSlot: true,
+            label: 'label',
+            type: "text",
+            autofocus: true,
+            disabled: false,
+            readonly: false,
+            value: 'content',
+            placeholder: 'placeholder',
+            infoText: '请输入正确的用户名',
+            status: '',
+            width: '400',
+            icon: false,
+            onInput: function () {
+                console.log('onInput')
+            },
+            onChange: function (e) {
+                console.log('onChange', e)
+            },
+            onClear: function () {
+                console.log('onClear')
+            },
+            onFocus: function (e) {
+                console.log('onFocus', e)
+            },
+            onBlur: function (e) {
+                console.log('onBlur', e)
+            }
         }
     },
     components: {
-        vceasyclearinput
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcEasyclearinput
     }
 })
 ```
 
-```vue
-<vc-easyclearinput 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+```html
+<vc-easyclearinput
+    :type="type"
+    :label="label"
+    :placeholder="placeholder"
+    :value.sync="value"
+    :info-text="infoText"
+    :autofocus="autofocus"
+    :disabled="disabled"
+    :readonly="readonly"
+    :width="width"
+    :icon="icon"
+    :status="status"
+    :on-clear="onClear"
+    :on-focus="onFocus"
+    :on-blur="onBlur"
+    @input="onInput"
+    @change="onChange"
+    oninput="console.log('native oninput, DOM0 inline event style')"
+>
+    <span slot="input-before" class="input-group-addon">@</span>
 </vc-easyclearinput>
 ```

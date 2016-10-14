@@ -10,52 +10,46 @@ order: 27
 
 ## Install
 
-```npm
+``` npm
 npm install vc-breadcrumb --save
 ```
 
-```html
-//global varibale  vcbreadcrumb
-<script src='../dist/vc-breadcrumb.js'></script>
+``` js
+import vcBreadcrumb from 'vc-breadcrumb' // build version
+import vcBreadcrumb from 'vc-breadcrumb/src/Breadcrumb.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### routes
 
-custom the ok breadcrumb text.
+* type: `Array`,
+* default: `[]`
 
-* default: `确定`
+### separator
+
+* default: `'/'`
+
+### `Breadcrumb-item` prop
+
+### text: 
+
 * type: `String`
 
-### cancelText
-
-custom the cancel breadcrumb text.
-
-* default: `取消`
+### url
 * type: `String`
-
-### visiable
-
-control the visiable of breadcrumb.
-
-* default: `false`
-* type: `Boolean` 
-
-### onOk | optional
-
-the callback for onOk.
-
-* type: `Function`
-
-### onCancel | optional
-
-the callback of onCancel
-
-* type: `Function`
-
 
 ## example
 
@@ -63,44 +57,75 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcbreadcrumb
-    } from '../dist/vc-breadcrumb.js'
+import vcBreadcrumb from '../src'
+
+const { vcBreadcrumbItem } = vcBreadcrumb
+
+var vcSeparator = Vue.extend({
+    template: '<span class="separator-class">-/-</span>'
+})
 
 new Vue({
-    el: '#app',
-    data () {
-        return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
-        }
-    },
-    components: {
-        vcbreadcrumb
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
-    }
+	el: '#app',
+	components: {
+        vcBreadcrumb,
+        vcBreadcrumbItem,
+        vcSeparator
+	},
+	data () {
+		return {
+            defaults: false,
+            separator: '/',
+            routes: [{
+                url: 'https://github.com/IndexXuan/',
+                text: 'IndexXuan'
+            }, {
+                url: 'https://github.com/stars',
+                text: 'stars'
+            }, {
+                text: 'current'
+            }]
+		}
+	}
 })
 ```
 
-```vue
+```html 
+<vc-breadcrumb
+    :routes="routes"
+    :separator="separator"
+>
+</vc-breadcrumb>
+
+<vc-breadcrumb
+    :routes="routes"
+    :separator="separator"
+>
+    <vc-separator slot="separator"></vc-separator>
+</vc-breadcrumb>
+
 <vc-breadcrumb 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+    :separator="separator"
+>
+    <vc-breadcrumb-item url="https://github.com/IndexXuan">首页</vc-breadcrumb-item>
+    <vc-breadcrumb-item>第二级</vc-breadcrumb-item>
+    <vc-breadcrumb-item>第三级</vc-breadcrumb-item>
+</vc-breadcrumb>
+
+<vc-breadcrumb 
+    :separator="separator"
+>
+    <vc-breadcrumb-item url="https://github.com/IndexXuan">
+        首页
+        <vc-separator slot="separator"></vc-separator>
+    </vc-breadcrumb-item>
+    <vc-breadcrumb-item>
+        第二级
+        <vc-separator slot="separator"></vc-separator>
+    </vc-breadcrumb-item>
+    <vc-breadcrumb-item>
+        第三级
+        <vc-separator slot="separator"></vc-separator>
+    </vc-breadcrumb-item>
 </vc-breadcrumb>
 ```

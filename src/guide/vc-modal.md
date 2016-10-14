@@ -10,52 +10,110 @@ order: 18
 
 ## Install
 
-```npm
+``` npm
 npm install vc-modal --save
 ```
 
-```html
-//global varibale  vcmodal
-<script src='../dist/vc-modal.js'></script>
+``` js
+import vcModal from 'vc-modal' // build version
+import vcModal from 'vc-modal/src/Modal.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
+### show
+
+* require: `true`,
+* type: `Boolean`,
+* twoWay: `true`
+
+### title
+
+* type: `String`,
+* default: `''`
+
+### showCloseBtn
+
+* type: `Boolean`,
+* default: `true`
+
+### maskCloseable
+
+* type: `Boolean`,
+* default: `true`
+
+### showHeader
+
+* type: `Boolean`,
+* default: `true`
+
+### showFooter
+
+* type: `Boolean`,
+* default: `true`
+
+### width
+
+* default: `null`
+
+### top
+
+* default: `null`
+
+### center
+
+* type: `Boolean`,
+* default: `false`
+
 ### okText
 
-custom the ok modal text.
-
-* default: `确定`
-* type: `String`
+* type: `String`,
+* default: `'确定'`
 
 ### cancelText
+    
+* type: `String`,
+* default: `'取消'`
 
-custom the cancel modal text.
+### onOk
 
-* default: `取消`
-* type: `String`
+* type: `Function`
 
-### visiable
+### onCancel
 
-control the visiable of modal.
+* type: `Function`
 
+### effect
+
+* type: `String`,
+* default: `'fade'`
+
+### backdrop
+
+* type: `Boolean`,
+* default: `true`
+
+### large
+
+* type: `Boolean`,
 * default: `false`
-* type: `Boolean` 
 
-### onOk | optional
+### small
 
-the callback for onOk.
-
-* type: `Function`
-
-### onCancel | optional
-
-the callback of onCancel
-
-* type: `Function`
-
+* type: `Boolean`,
+* default: `false`
 
 ## example
 
@@ -63,44 +121,64 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcmodal
-    } from '../dist/vc-modal.js'
+import vcModal from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            title: 'title',
+            show: true,
+            center: false,
+            small: false,
+            large: true,
+            showCloseBtn: true,
+            showHeader: true,
+            showFooter: true,
+            effect: 'fade',
+            width: '',
+            top: '',
+            okText: '确认',
+            cancelText: '取消',
+            maskCloseable: true
         }
     },
     components: {
-        vcmodal
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcModal
     }
 })
 ```
 
-```vue
-<vc-modal 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+```html
+<vc-modal
+    :show.sync="show"
+    :small="small"
+    :title="title"
+    :effect="effect"
+    :center="center"
+    :show-close-btn="showCloseBtn"
+    :mask-closeable="maskCloseable"
+    :show-header="showHeader"
+    :show-footer="showFooter"
+    :width="width"
+    :top="top"
+    :ok-text="okText"
+    :cancel-text="cancelText"
+    :on-ok="onOk"
+    :on-cancel="onCancel"
+>
+    <div slot="modal-header" class="modal-header">
+        content of header 
+    </div>
+    <div slot="modal-body" class="modal-body">
+        content
+    </div>
+    <div slot="modal-footer" class="modal-footer">
+        content of footer 
+    </div>
 </vc-modal>
 ```

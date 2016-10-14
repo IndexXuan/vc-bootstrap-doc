@@ -1,5 +1,5 @@
 ---
-title: vc-tag
+title: vc-steps
 type: guide
 order: 12
 ---
@@ -11,12 +11,14 @@ order: 12
 ## Install
 
 ``` npm
-npm install vc-tag --save
+npm install vc-steps --save
 ```
 
 ``` js
-import vcTag from 'vc-tag' // build version
-import vcTag from 'vc-tag/src/Tag.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcSteps from 'vc-steps'
+// recommend for *.vue project for small bundle size
+import vcSteps from 'vc-steps/src/Steps.vue'
 ```
 
 ``` js 
@@ -37,39 +39,33 @@ require('./dist/build.min.js')
 
 * type: `Boolean`
 * default: `true`
+* twoWay: `true`
 
-### label
+### steps
 
-* type: `String`
+传入的steps，如果传入合法的 `allSteps` 预设，则会合并
+    
+* type: `Array`
 
-### size
+### allSteps
 
-* type: `String`
-* default: `'default'`
+- 可选的预设，多用于系统通用的流程，可传入通用预设
+- 只有长度大于传入的`steps` 才会进行预设追加的合并
+
+* type: `Array`
+
+### title
+
+* default: `'title'`
+
+### subTitle
+
+* default: `'subTitle'`
 
 ### closeable
 
 * type: `Boolean`
-
-### disabled
-
-* type: `Boolean`
-* default: `false`
-
-### status
-
-* type: `String`
-
-### onClose
-
-* type: `Function`
-
-### afterClose
-
-animationend callback
-
-* type: `Function`
-
+* default: `true`
 
 ## example
 
@@ -108,15 +104,13 @@ new Vue({
 ```
 
 ```html
-<vc-tag
+<vc-steps
     :show.sync="show"
-    :label="label"
-    :disabled="disabled"
-    :size="size"
-    :status="status"
+    :steps="steps"
+    :all-steps="allSteps"
+    :title="title"
+    :sub-title="subTitle"
     :closeable="closeable"
-    :on-close="onClose"
-    :after-close="afterClose"
 >
-</vc-tag>
+</vc-steps>
 ```

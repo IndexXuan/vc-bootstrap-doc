@@ -10,52 +10,84 @@ order: 29
 
 ## Install
 
-```npm
+``` npm
 npm install vc-tabs --save
 ```
 
-```html
-//global varibale  vctabs
-<script src='../dist/vc-tabs.js'></script>
+``` js
+import vcTabs from 'vc-tabs' // build version
+import vcTabs from 'vc-tabs/src/Tabs.vue' // recommend for *.vue project for small bundle size
+const vcTabset = vcTabs.vcTabset
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### id
 
-custom the ok tabs text.
+可传入id,关闭$parent的autoIndex来用外界传入的index做tab的渲染,高级用法，一般无需使用
 
-* default: `确定`
+* type: `String | Number`
+
+### 'header'
+
+tab title
+
 * type: `String`
 
-### cancelText
+### disabled
 
-custom the cancel tabs text.
+不响应点击事件，达到不会切换tab的disabled效果
 
-* default: `取消`
-* type: `String`
-
-### visiable
-
-control the visiable of tabs.
-
+* type: `Boolean`
 * default: `false`
-* type: `Boolean` 
 
-### onOk | optional
+`Tabset props`
 
-the callback for onOk.
+### name
 
-* type: `Function`
+* type: `String`
 
-### onCancel | optional
+### removeable
+    
+* type: `Boolean`
+* default: `false`
 
-the callback of onCancel
+### trigger
 
-* type: `Function`
+* type: `String`
+* default: `'click'`
 
+### delay
+
+* type: `Number | String`
+* default: `120`
+
+### effect
+
+* type: `String`
+* default: `'fadein'`
+
+### active
+
+* type: `Number | String`
+* default: `0`
+
+### autoIndex
+
+* type: `Boolean`
+* default: `true`
 
 ## example
 
@@ -63,44 +95,63 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vctabs
-    } from '../dist/vc-tabs.js'
+import { vcTab, vcTabset } from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
-        }
-    },
-    components: {
-        vctabs
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
+            active: 0,
+            trigger: 'hover',
+            autoIndex: true,
+            renderData: null,
+            header0: 'header0',
+            header1: 'header1',
+            header2: 'header2'
         }
     },
     ready () {
+        this.renderData = this.$refs.tabs.renderData
+    },
+    methods: {
+        deleteTheTab () {
+            this.renderData.splice(0, 1)
+        }
+    },
+    components: {
+        vcTab,
+        vcTabset
     }
 })
 ```
 
-```vue
-<vc-tabs 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
-</vc-tabs>
+```html
+<vc-tabset 
+    v-ref:tabs
+    :trigger="trigger"
+    :active="active"
+    :removeable="true"
+    :auto-index="autoIndex"
+>
+    <vc-tab
+        :header="header0"
+    >
+        <div>content0</div>
+    </vc-tab>
+    <vc-tab
+        :header="header1"
+    >
+        <div>content1</div>
+    </vc-tab>
+    <vc-tab
+        :header="header2"
+    >
+        <div>content2</div>
+    </vc-tab>
+    <vc-tab
+        :header="header0"
+    >
+        <div>content0</div>
+    </vc-tab>
+</vc-tabset>
 ```

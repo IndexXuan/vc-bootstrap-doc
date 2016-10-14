@@ -10,52 +10,75 @@ order: 21
 
 ## Install
 
-```npm
+
+``` npm
 npm install vc-popover --save
 ```
 
-```html
-//global varibale  vcpopover
-<script src='../dist/vc-popover.js'></script>
+``` js
+import vcPopover from 'vc-popover' // build version
+import vcPopover from 'vc-popover/src/Popover.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### show
 
-custom the ok popover text.
-
-* default: `确定`
-* type: `String`
-
-### cancelText
-
-custom the cancel popover text.
-
-* default: `取消`
-* type: `String`
-
-### visiable
-
-control the visiable of popover.
-
+* type: `Boolean`,
 * default: `false`
-* type: `Boolean` 
 
-### onOk | optional
+### functionalShow
 
-the callback for onOk.
+函数式显示，此属性配合show来使用，只响应 `show` prop和控制，不受事件控制
 
-* type: `Function`
+* type: `Boolean`,
+* default: `false`
 
-### onCancel | optional
+### trigger
 
-the callback of onCancel
+one of click, hover, focus, contextmenu
 
-* type: `Function`
+* type: `String`,
+* default: `'click'`
 
+### closeable
+
+* type: `Boolean`,
+* default: `true`
+
+### effect
+
+* type: `String`,
+* default: `'vc-fade'`
+
+### title
+
+* type: `String`
+
+### content
+
+* type: `String`
+
+### header
+
+* type: `Boolean`,
+* default: `true`
+
+### placement
+
+* type: `String`
 
 ## example
 
@@ -63,44 +86,34 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcpopover
-    } from '../dist/vc-popover.js'
+import vcPopover from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            show: true,
+            closeable: false 
         }
-    },
-    components: {
-        vcpopover
     },
     methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
     },
-    ready () {
+    components: {
+        vcPopover
     }
 })
 ```
 
-```vue
+```html
 <vc-popover 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+    placement="left"
+    title="Title"
+    content="content"
+>
+    <button class="btn btn-xs btn-success">left</button>
 </vc-popover>
 ```

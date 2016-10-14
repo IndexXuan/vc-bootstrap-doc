@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>vc-dialog - vc-bootstrap</title>
+        <title>vc-spin - vc-bootstrap</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue component library -- vc-bootstrap">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -153,7 +153,7 @@
                 </li>
             
                 <li>
-                    <a href="/vc-bootstrap-doc/guide/vc-dialog.html" class="sidebar-link current">vc-dialog</a>
+                    <a href="/vc-bootstrap-doc/guide/vc-dialog.html" class="sidebar-link">vc-dialog</a>
                 </li>
             
                 <li>
@@ -177,7 +177,7 @@
                 </li>
             
                 <li>
-                    <a href="/vc-bootstrap-doc/guide/vc-spin.html" class="sidebar-link">vc-spin</a>
+                    <a href="/vc-bootstrap-doc/guide/vc-spin.html" class="sidebar-link current">vc-spin</a>
                 </li>
             
                 <li>
@@ -206,25 +206,25 @@
 
 
 <div class="content guide with-sidebar">
-    <h1>vc-dialog</h1>
+    <h1>vc-spin</h1>
     <ul>
-<li><a href="https://github.com/iwaimai-bi-fe/vc-dialog" target="_blank" rel="external">github</a></li>
-<li><a href="https://www.npmjs.com/package/vc-dialog" target="_blank" rel="external">npm</a></li>
-<li><a href="https://github.com/iwaimai-bi-fe/vc-dialog/archive/master.zip" target="_blank" rel="external">download</a></li>
+<li><a href="https://github.com/iwaimai-bi-fe/vc-spin" target="_blank" rel="external">github</a></li>
+<li><a href="https://www.npmjs.com/package/vc-spin" target="_blank" rel="external">npm</a></li>
+<li><a href="https://github.com/iwaimai-bi-fe/vc-spin/archive/master.zip" target="_blank" rel="external">download</a></li>
 </ul>
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install vc-dialog --save</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line">//global varibale  vcdialog</div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'../dist/vc-dialog.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><h3 id="okText"><a href="#okText" class="headerlink" title="okText"></a>okText</h3><p>custom the ok dialog text.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install vc-spin --save</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line">//global varibale  vcspin</div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'../dist/vc-spin.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><h3 id="okText"><a href="#okText" class="headerlink" title="okText"></a>okText</h3><p>custom the ok spin text.</p>
 <ul>
 <li>default: <code>确定</code></li>
 <li>type: <code>String</code></li>
 </ul>
-<h3 id="cancelText"><a href="#cancelText" class="headerlink" title="cancelText"></a>cancelText</h3><p>custom the cancel dialog text.</p>
+<h3 id="cancelText"><a href="#cancelText" class="headerlink" title="cancelText"></a>cancelText</h3><p>custom the cancel spin text.</p>
 <ul>
 <li>default: <code>取消</code></li>
 <li>type: <code>String</code></li>
 </ul>
-<h3 id="visiable"><a href="#visiable" class="headerlink" title="visiable"></a>visiable</h3><p>control the visiable of dialog.</p>
+<h3 id="visiable"><a href="#visiable" class="headerlink" title="visiable"></a>visiable</h3><p>control the visiable of spin.</p>
 <ul>
 <li>default: <code>false</code></li>
 <li>type: <code>Boolean</code> </li>
@@ -240,16 +240,16 @@
 <h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><ul>
 <li>js</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">        vcdialog</div><div class="line">    &#125; <span class="keyword">from</span> <span class="string">'../dist/vc-dialog.js'</span></div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    el: <span class="string">'#app'</span>,</div><div class="line">    data () &#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            isShow: <span class="literal">true</span>,</div><div class="line">            okText: <span class="string">'ok'</span>,</div><div class="line">            cancelText: <span class="string">'cancel'</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">        vcdialog</div><div class="line">    &#125;,</div><div class="line">    methods: &#123;</div><div class="line">        onOk () &#123;</div><div class="line"></div><div class="line">        &#125;,</div><div class="line">        onCancel () &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    ready () &#123;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;vc-dialog </div><div class="line">    :visible=&apos;isShow&apos;</div><div class="line">    :okText=&apos;okText&apos;</div><div class="line">    :cancelText=&apos;cancelText&apos;</div><div class="line">    :onOk=&apos;onOk&apos;</div><div class="line">    :onCancel=&apos;onCancel&apos;&gt;</div><div class="line">    &lt;div class=&quot;your-html&quot;&gt;</div><div class="line">        </div><div class="line">    &lt;/div&gt;     </div><div class="line">&lt;/vc-dialog&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">        vcspin</div><div class="line">    &#125; <span class="keyword">from</span> <span class="string">'../dist/vc-spin.js'</span></div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    el: <span class="string">'#app'</span>,</div><div class="line">    data () &#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            isShow: <span class="literal">true</span>,</div><div class="line">            okText: <span class="string">'ok'</span>,</div><div class="line">            cancelText: <span class="string">'cancel'</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">        vcspin</div><div class="line">    &#125;,</div><div class="line">    methods: &#123;</div><div class="line">        onOk () &#123;</div><div class="line"></div><div class="line">        &#125;,</div><div class="line">        onCancel () &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    ready () &#123;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;vc-spin </div><div class="line">    :visible=&apos;isShow&apos;</div><div class="line">    :okText=&apos;okText&apos;</div><div class="line">    :cancelText=&apos;cancelText&apos;</div><div class="line">    :onOk=&apos;onOk&apos;</div><div class="line">    :onCancel=&apos;onCancel&apos;&gt;</div><div class="line">    &lt;div class=&quot;your-html&quot;&gt;</div><div class="line">        </div><div class="line">    &lt;/div&gt;     </div><div class="line">&lt;/vc-spin&gt;</div></pre></td></tr></table></figure>
 
     
       <div class="guide-links">
         
-          <span>← <a href="/vc-bootstrap-doc/guide/vc-modal.html">vc-modal</a></span>
+          <span>← <a href="/vc-bootstrap-doc/guide/vc-table.html">vc-table</a></span>
         
         
-          <span style="float:right"><a href="/vc-bootstrap-doc/guide/vc-notification.html">vc-notification</a> →</span>
+          <span style="float:right"><a href="/vc-bootstrap-doc/guide/vc-backtop.html">vc-backtop</a> →</span>
         
       </div>
     

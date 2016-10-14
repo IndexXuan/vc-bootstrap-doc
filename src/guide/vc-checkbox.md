@@ -10,52 +10,65 @@ order: 8
 
 ## Install
 
-```npm
+``` npm
 npm install vc-checkbox --save
 ```
 
-```html
-//global varibale  vccheckbox
-<script src='../dist/vc-checkbox.js'></script>
+``` js
+import vcCheckbox from 'vc-checkbox' // build version
+import vcCheckbox from 'vc-checkbox/src/Checkbox.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### name
 
-custom the ok checkbox text.
+* type: `String`,
+* default: `null`
 
-* default: `确定`
-* type: `String`
+### label
 
-### cancelText
+* type: `String | Number`
 
-custom the cancel checkbox text.
+### value
 
-* default: `取消`
-* type: `String`
+* default: `true`
 
-### visiable
+### checked
 
-control the visiable of checkbox.
+* twoWay: `true`
 
+### button
+
+* type: `Boolean`,
 * default: `false`
-* type: `Boolean` 
 
-### onOk | optional
+### disabled
 
-the callback for onOk.
+* type: `Boolean`,
+* default: `false`
 
-* type: `Function`
+### readonly
 
-### onCancel | optional
+* type: `Boolean`,
+* default: `false`
 
-the callback of onCancel
+### type
 
-* type: `Function`
-
+* type: `String`,
+* default: `null`
 
 ## example
 
@@ -63,44 +76,52 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vccheckbox
-    } from '../dist/vc-checkbox.js'
+import vcCheckbox from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            label: '选择2, not slot',
+            value: true,
+            button: true,
+            type: 'success',
+            checked: true,
+            disabled: false,
+            readonly: false
         }
     },
     components: {
-        vccheckbox
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcCheckbox
     }
 })
 ```
 
-```vue
-<vc-checkbox 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+```html
+<vc-checkbox
+    :label="label"
+    :checked.sync="checked"
+    :value="value"
+    :button="button"
+    :type="type"
+    :disabled="disabled"
+    :readonly="readonly"
+>
+    slot
+</vc-checkbox>
+
+<vc-checkbox
+    :label="label"
+    :checked.sync="checked"
+    :value="value"
+    :button="button"
+    :type="type"
+    :disabled="disabled"
+    :readonly="readonly"
+>
 </vc-checkbox>
 ```

@@ -10,52 +10,138 @@ order: 28
 
 ## Install
 
-```npm
+``` npm
 npm install vc-pagination --save
 ```
 
-```html
-//global varibale  vcpagination
-<script src='../dist/vc-pagination.js'></script>
+``` js
+import vcPagination from 'vc-pagination' // build version
+import vcPagination from 'vc-pagination/src/Pagination.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### simple
 
-custom the ok pagination text.
-
-* default: `确定`
-* type: `String`
-
-### cancelText
-
-custom the cancel pagination text.
-
-* default: `取消`
-* type: `String`
-
-### visiable
-
-control the visiable of pagination.
-
+普通版本
+    
+* type: `Boolean`,
 * default: `false`
-* type: `Boolean` 
 
-### onOk | optional
+### align
+    
+* type: `String`,
+* default: `'center'`
 
-the callback for onOk.
+### prevText
 
-* type: `Function`
+* type: `String`,
+* default: `'‹'`
 
-### onCancel | optional
+### nextText
 
-the callback of onCancel
+* type: `String`,
+* default: `'›'`
 
-* type: `Function`
+### firstPageText
 
+* type: `String`,
+* default: `'首页'`
+
+### lastPageText
+
+* type: `String`,
+* default: `'末页'`
+
+### displayNum
+
+可看见的页码数目
+
+* type: `Number`,
+* default: 6
+
+### edgeNum
+
+页码较多时，前后空余的可选页码数量
+
+* type: `Number`,
+* default: `2`
+
+### current
+
+当前页码数
+
+    
+* twoWay: `true`,
+* type: `Number`,
+* default: `1`
+
+### pageSize
+
+页面数据量
+
+    
+* twoWay: `true`,
+* type: `Number`,
+* default: `10`
+
+### total
+
+全部结果集数目
+
+* type: `Number`,
+* default: `0`
+
+### onPageChange
+
+* type: `Function`,
+* default: `function () {}`
+
+### jumpable
+
+是否显示跳转控件（页码输入框和跳转按钮）
+
+* type: `Boolean`,
+* default: `true`
+
+### goLabel
+
+跳转按钮的文案
+
+* type: `String`,
+* default: `'跳转'`
+
+### invalidCallback: {
+
+* type: `Function`,
+* default: `function () {}`
+
+### pageSizeEditable
+
+* type: `Boolean`,
+* default: `true` 
+
+### pageSizeArr
+
+* type: `Array`,
+* default: `[10, 20, 40, 100]`
+
+### onPageSizeChange
+
+* type: `Function`,
+* default: `function () {}`
 
 ## example
 
@@ -63,44 +149,65 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcpagination
-    } from '../dist/vc-pagination.js'
+import vcPagination from '../dist/build.js'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            simple: true,
+            align: 'center',
+            firstPageText: '首页',
+            lastPageText: '末页',
+            displayNum: 6,
+            edgeNum: 2,
+            total: 200,
+            current: 1,
+            pageSize: 20,
+            pageSizeEditable: true, 
+            pageSizeArr: [10, 20, 40, 100],
+            jumpable: true,
+            goLabel: '跳转',
+            invilidPageHandler: null,
+            onPageChange: null,
+            onPageSizeChange: null,
+
+            pageSizeArrStr: '', // just for demo
+        }
+    },
+    methods: {
+        setPageSizeArr: function () {
+            this.pageSizeArr = this.pageSizeArrStr.replace(/\s/, '').split(',')
         }
     },
     components: {
-        vcpagination
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcPagination
     }
 })
 ```
 
-```vue
-<vc-pagination 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+```html
+<vc-pagination
+    :simple="simple"
+    :align="align"
+    :first-page-text="firstPageText"
+    :last-page-text="lastPageText"
+    :display-num="displayNum"
+    :edge-num="edgeNum"
+    :total="total"
+    :current.sync="current"
+    :page-size.sync="pageSize"
+    :page-size-editable="pageSizeEditable"
+    :page-size-arr="pageSizeArr"
+    :jumpable="jumpable"
+    :go-label="goLabel"
+    :invilid-page-handler="invilidPageHandler"
+    :on-page-change="onPageChange"
+    :on-page-size-change="onPageSizeChange"
+>
 </vc-pagination>
 ```

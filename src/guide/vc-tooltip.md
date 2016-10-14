@@ -10,52 +10,62 @@ order: 22
 
 ## Install
 
-```npm
+``` npm
 npm install vc-tooltip --save
 ```
 
-```html
-//global varibale  vctooltip
-<script src='../dist/vc-tooltip.js'></script>
+``` js
+import vcTooltip from 'vc-tooltip' // build version
+import vcTooltip from 'vc-tooltip/src/Tooltip.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### trigger
 
-custom the ok tooltip text.
+* type: `String`
+* default: `'hover'`
 
-* default: `确定`
+### effect
+
+* type: `String`
+* default: `'vc-scale'`
+
+### content
+
 * type: `String`
 
-### cancelText
+### placement
 
-custom the cancel tooltip text.
-
-* default: `取消`
 * type: `String`
+* default: `'right'`
 
-### visiable
+### show
 
-control the visiable of tooltip.
-
+* type: `Boolean`
 * default: `false`
-* type: `Boolean` 
 
-### onOk | optional
+### closeable
 
-the callback for onOk.
+* type: `Boolean`
+* default: `true`
 
-* type: `Function`
+### functionalShow
 
-### onCancel | optional
-
-the callback of onCancel
-
-* type: `Function`
-
+* type: `Boolean`
+* default: `false`
 
 ## example
 
@@ -63,44 +73,27 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vctooltip
-    } from '../dist/vc-tooltip.js'
+import vcTooltip from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
         }
-    },
-    components: {
-        vctooltip
     },
     methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
     },
-    ready () {
+    components: {
+        vcTooltip
     }
 })
 ```
 
-```vue
-<vc-tooltip 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+```html
+<vc-tooltip
+    content="content tooltip from top"
+    placement="top"
+>
+    <button class="btn btn-xs btn-info">hover我</button>
 </vc-tooltip>
 ```

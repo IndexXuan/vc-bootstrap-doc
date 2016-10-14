@@ -10,52 +10,52 @@ order: 23
 
 ## Install
 
-```npm
+``` npm
 npm install vc-progress --save
 ```
 
-```html
-//global varibale  vcprogress
-<script src='../dist/vc-progress.js'></script>
+``` js
+import vcProgress from 'vc-progress' // build version
+import vcProgress from 'vc-progress/src/Progress.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### value
 
-custom the ok progress text.
+* type: `Number | String`,
+* required: `true`
 
-* default: `确定`
+### showProgress
+
+* type: `Boolean`,
+* default: `true` 
+
+### type
+
 * type: `String`
 
-### cancelText
+### striped
 
-custom the cancel progress text.
-
-* default: `取消`
-* type: `String`
-
-### visiable
-
-control the visiable of progress.
-
+* type: `Boolean`,
 * default: `false`
-* type: `Boolean` 
 
-### onOk | optional
+### animated
 
-the callback for onOk.
-
-* type: `Function`
-
-### onCancel | optional
-
-the callback of onCancel
-
-* type: `Function`
-
+* type: `Boolean`,
+* default: `false`
 
 ## example
 
@@ -63,44 +63,37 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcprogress
-    } from '../dist/vc-progress.js'
+import vcProgress from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            value: 80,
+            showProgress: true,
+            type: 'success',
+            striped: true,
+            animated: true
         }
     },
     components: {
-        vcprogress
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcProgress
     }
 })
 ```
 
-```vue
-<vc-progress 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+```html
+<vc-progress
+    style="border-radius: 5px;"
+    :value="value"
+    :type="type"
+    :show-progress="showProgress"
+    :animated="animated"
+    :striped="striped"
+>
 </vc-progress>
 ```

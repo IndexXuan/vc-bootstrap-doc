@@ -10,51 +10,46 @@ order: 14
 
 ## Install
 
-```npm
+
+``` npm
 npm install vc-card --save
 ```
 
-```html
-//global varibale  vccard
-<script src='../dist/vc-card.js'></script>
+``` js
+import vcCard from 'vc-card' // build version
+import vcCard from 'vc-card/src/Card.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### title 
 
-custom the ok card text.
-
-* default: `确定`
 * type: `String`
 
-### cancelText
+### content
 
-custom the cancel card text.
+* type: `String`,
 
-* default: `取消`
+### bordered
+
+* type: `Boolean`,
+* default: `true`
+
+### bodyClass
+
 * type: `String`
-
-### visiable
-
-control the visiable of card.
-
-* default: `false`
-* type: `Boolean` 
-
-### onOk | optional
-
-the callback for onOk.
-
-* type: `Function`
-
-### onCancel | optional
-
-the callback of onCancel
-
-* type: `Function`
 
 
 ## example
@@ -63,44 +58,34 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vccard
-    } from '../dist/vc-card.js'
+import vcCard from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            title: 'title',
+            content: 'content',
+            bordered: true,
+            bodyClass: 'body-class'
         }
     },
     components: {
-        vccard
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcCard
     }
 })
 ```
 
-```vue
-<vc-card 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+```html
+<vc-card
+    :title="title"
+    :content="content"
+    :bordered="bordered"
+>
+    content
 </vc-card>
 ```

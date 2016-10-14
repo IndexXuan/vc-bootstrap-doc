@@ -10,52 +10,68 @@ order: 26
 
 ## Install
 
-```npm
+``` npm
 npm install vc-backtop --save
 ```
 
-```html
-//global varibale  vcbacktop
-<script src='../dist/vc-backtop.js'></script>
+``` js
+import vcBacktop from 'vc-backtop' // build version
+import vcBacktop from 'vc-backtop/src/Backtop.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### style
 
-custom the ok backtop text.
+* type: `Object`,
+* default: `
+        width: DEFAULT_SIZE + 'px',
+        height: DEFAULT_SIZE + 'px',
+        top: 'auto',
+        left: 'auto',
+        right: '30px',
+        bottom: '40px'
 
-* default: `确定`
-* type: `String`
+### interval
 
-### cancelText
+执行滚动位置检测的间隔
 
-custom the cancel backtop text.
+* type: `Number`,
+* default: `32`
 
-* default: `取消`
-* type: `String`
+### scrollbarOffset
 
-### visiable
+* type: `Number`,
+* default: `100`
 
-control the visiable of backtop.
+### acceleration: {
 
-* default: `false`
-* type: `Boolean` 
+* type: `Number`,
+* default: `.5`
 
-### onOk | optional
+### time
 
-the callback for onOk.
+* type: `Number`,
+* default: `10`
 
-* type: `Function`
+### mode
 
-### onCancel | optional
+动画模式
 
-the callback of onCancel
-
-* type: `Function`
-
+* type: `String`,
+* default: `'raf'`
 
 ## example
 
@@ -63,44 +79,31 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcbacktop
-    } from '../dist/vc-backtop.js'
+import vcBacktop from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            acceleration: .7,
+            scrollbarOffset: "100",
+            interval: 128,
+            style: { "width": "60px","height": "60px","left":"auto", "top":"auto", "bottom": "60px", "right": "40px" },
+            styleText: '{ "width": "60px","height": "60px","left":"auto", "top":"auto", "bottom": "60px", "right": "40px" }'
         }
     },
     components: {
-        vcbacktop
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcBacktop
     }
-})
 ```
 
-```vue
-<vc-backtop 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+```html
+<vc-backtop
+    :scrollbar-offset="scrollbarOffset"
+    :style.sync="style"
+    :interval="interval"
+    :acceleration="acceleration"
+    :mode="mode"
+>
 </vc-backtop>
 ```

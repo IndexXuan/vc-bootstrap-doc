@@ -15,12 +15,12 @@ npm install vc-icon --save
 ```
 
 ``` js
-import vcIcon from 'vc-icon' // bundle & build version
-import vcIcon from 'vc-icon/src' // recommand for *.vue project
+import vcIcon from 'vc-icon' // build version
+import vcIcon from 'vc-icon/src/Icon.vue' // recommand for *.vue project for small bundle size
 ```
 
 ``` js 
-// CommonJS
+// commonjs
 require('dist/build.min.js')
 ```
 

@@ -10,51 +10,77 @@ order: 13
 
 ## Install
 
-```npm
-npm install vc-alert --save
+``` npm
+npm install vc-button --save
 ```
 
-```html
-//global varibale  vcalert
-<script src='../dist/vc-alert.js'></script>
+``` js
+import vcAlert from 'vc-alert' // build version
+import vcAlert from 'vc-alert/src/Alert.vue' // recommend for *.vue project for small bundle size
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='dist/build.min.js'></script>
 ```
 
 ## Usage
 
 ## props
 
-### okText
+### type 
 
-custom the ok alert text.
+type of alert
 
-* default: `确定`
 * type: `String`
 
-### cancelText
+### mode 
 
-custom the cancel alert text.
+是否固定文档流
 
-* default: `取消`
+* default: `fixed`
 * type: `String`
 
-### visiable
+### dismissable
 
-control the visiable of alert.
+是否有关闭按钮
 
 * default: `false`
 * type: `Boolean` 
 
-### onOk | optional
+### show
 
-the callback for onOk.
-
-* type: `Function`
-
-### onCancel | optional
-
-the callback of onCancel
+是否显示
 
 * type: `Function`
+* twoWay: `true`
+
+### duration
+
+可选的持续时间
+
+* type: `Number`
+
+### width
+
+宽度
+
+* type: `String`
+
+### placement
+
+定位
+
+* type: `String`
+
+### positionClass
+
+* type: `String`
 
 
 ## example
@@ -63,44 +89,45 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcalert
-    } from '../dist/vc-alert.js'
+import vcAlert from '../src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            show: false,
+            mode: 'fixed',
+            type: 'success',
+            width: '500',
+            placement: 'top',
+            duration: '3000',
+            dismissable: true,
+            positionClass: null
         }
     },
     components: {
-        vcalert
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcAlert
     }
-})
+}
 ```
 
-```vue
+```html
 <vc-alert 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
+    :show.sync="show"
+    :mode="mode"
+    :placement="placement"
+    :duration="duration"
+    :type="type"
+    :width="width"
+    :position-class="positionClass"
+    :dismissable="dismissable"
+>
+    <span class="icon-ok-circled alert-icon-float-left"></span>
+    <strong>Well Done!</strong>
+    <p>You successfully read this important alert message.</p>
 </vc-alert>
 ```

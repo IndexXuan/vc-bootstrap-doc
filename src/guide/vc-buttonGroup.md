@@ -23,39 +23,26 @@ npm install vc-buttonGroup --save
 
 ## props
 
-### okText
+### value
 
-custom the ok buttonGroup text.
+值
 
-* default: `确定`
-* type: `String`
+### buttons
 
-### cancelText
+* type: `Boolean`,
+* default: `true`
 
-custom the cancel buttonGroup text.
+### group
 
-* default: `取消`
-* type: `String`
+是否是 `group` 模式
 
-### visiable
+* type: `Boolean`,
+* default: `true`
 
-control the visiable of buttonGroup.
+### type
 
-* default: `false`
-* type: `Boolean` 
-
-### onOk | optional
-
-the callback for onOk.
-
-* type: `Function`
-
-### onCancel | optional
-
-the callback of onCancel
-
-* type: `Function`
-
+* type: `String`,
+* default: `'default'`
 
 ## example
 
@@ -63,44 +50,55 @@ the callback of onCancel
 
 ```js
 import Vue from 'vue'
-import {
-        vcbuttonGroup
-    } from '../dist/vc-buttonGroup.js'
+import vcButtonGroup from '../src'
+import vcCheckbox from '../../vc-checkbox/src'
+import vcRadio from '../../vc-radio/src'
 
 new Vue({
     el: '#app',
     data () {
         return {
-            isShow: true,
-            okText: 'ok',
-            cancelText: 'cancel'
+            bools: {
+                'true': true,
+                'false': false
+            },
+            checkValue: null,
+            radioValue: null,
+            buttons: true
         }
     },
     components: {
-        vcbuttonGroup
-    },
-    methods: {
-        onOk () {
-
-        },
-        onCancel () {
-
-        }
-    },
-    ready () {
+        vcButtonGroup,
+        vcCheckbox,
+        vcRadio
     }
 })
 ```
 
-```vue
-<vc-buttonGroup 
-    :visible='isShow'
-    :okText='okText'
-    :cancelText='cancelText'
-    :onOk='onOk'
-    :onCancel='onCancel'>
-    <div class="your-html">
-        
-    </div>     
-</vc-buttonGroup>
+```html
+<vc-button-group
+    :value.sync="radioValue"
+    :buttons="buttons"
+>
+    <vc-radio type="success" value="one">中文第一个</vc-radio>
+    <vc-radio type="warning" value="two">two</vc-radio>
+    <vc-radio type="danger" value="three">three</vc-radio>
+    <vc-radio type="info" value="four">four</vc-radio>
+</vc-button-group>
+
+<pre>radio: {{ radioValue | json 4 }}</pre>
+
+<hr>
+
+<vc-button-group
+    :value.sync="checkValue"
+    :buttons="buttons"
+>
+    <vc-checkbox type="success" value="one">one</vc-checkbox>
+    <vc-checkbox type="warning" value="two">中文二</vc-checkbox>
+    <vc-checkbox type="danger" value="three">three</vc-checkbox>
+    <vc-checkbox type="info" value="four">four</vc-checkbox>
+</vc-button-group>
+
+<pre>checkbox: {{ checkValue | json 4 }}</pre>
 ```

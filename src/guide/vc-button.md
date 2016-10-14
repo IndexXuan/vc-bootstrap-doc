@@ -15,13 +15,13 @@ npm install vc-button --save
 ```
 
 ``` js
-import vcbutton from 'vc-button' // bundle & build version
-import vcbutton from 'vc-button/src' // recommend for *.vue project 
+import vcButton from 'vc-button' // build version
+import vcButton from 'vc-button/src/Button.vue' // recommend for *.vue project for small bundle size
 ```
 
 ``` js 
-// CommonJS
-require('dist/build.min.js')
+// commonjs
+require('./dist/build.min.js')
 ```
 
 ``` html
