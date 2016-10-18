@@ -1,9 +1,10 @@
 ---
 title: vc-dialog
-type: guide
-order: 19
+type: components
+order: 21
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-dialog/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-dialog)
 * [npm](https://www.npmjs.com/package/vc-dialog)
 * [download](https://github.com/iwaimai-bi-fe/vc-dialog/archive/master.zip)

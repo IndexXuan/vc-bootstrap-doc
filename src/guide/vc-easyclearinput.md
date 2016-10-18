@@ -1,9 +1,10 @@
 ---
 title: vc-easyclearinput
-type: guide
-order: 9
+type: components 
+order: 10
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-easyclearinput/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-easyclearinput)
 * [npm](https://www.npmjs.com/package/vc-easyclearinput)
 * [download](https://github.com/iwaimai-bi-fe/vc-easyclearinput/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-easyclearinput --save
 ```
 
 ``` js
-import vcEasyclearinput from 'vc-easyclearinput' // build version
-import vcEasyclearinput from 'vc-easyclearinput/src/Easyclearinput.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcEasyclearinput from 'vc-easyclearinput'
+
+// recommend for *.vue project for small bundle size
+import vcEasyclearinput from 'vc-easyclearinput/src/Easyclearinput.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

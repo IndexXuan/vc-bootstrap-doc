@@ -1,9 +1,10 @@
 ---
 title: vc-select
-type: guide
-order: 4
+type: components 
+order: 12
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-select/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-select)
 * [npm](https://www.npmjs.com/package/vc-select)
 * [download](https://github.com/iwaimai-bi-fe/vc-select/archive/master.zip)
@@ -15,8 +16,14 @@ npm install vc-select --save
 ```
 
 ``` js
-import vcSelect from 'vc-select' // build version
-import vcSelect from 'vc-select/src/Select.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcSelect from 'vc-select'
+
+// recommend for *.vue project for small bundle size
+import vcSelect from 'vc-select/src/Select.vue'
+
+// and get the child component
+const vcOption = vcSelect.vcOption
 ```
 
 ``` js 
@@ -26,7 +33,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage
@@ -193,7 +200,8 @@ require('./dist/build.min.js')
 ```js
 import Vue from 'vue'
 import vcSelect from '../src/Select'
-import vcOption from 'vc-option'
+
+const vcOption = vcSelect.vcOption
 
 new Vue({
     el: '#app',

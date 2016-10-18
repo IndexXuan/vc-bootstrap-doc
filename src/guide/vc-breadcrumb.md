@@ -1,9 +1,10 @@
 ---
 title: vc-breadcrumb
-type: guide
-order: 27
+type: components
+order: 28
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-breadcrumb/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-breadcrumb)
 * [npm](https://www.npmjs.com/package/vc-breadcrumb)
 * [download](https://github.com/iwaimai-bi-fe/vc-breadcrumb/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-breadcrumb --save
 ```
 
 ``` js
-import vcBreadcrumb from 'vc-breadcrumb' // build version
-import vcBreadcrumb from 'vc-breadcrumb/src/Breadcrumb.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcBreadcrumb from 'vc-breadcrumb'
+
+// recommend for *.vue project for small bundle size
+import vcBreadcrumb from 'vc-breadcrumb/src/Breadcrumb.vue' 
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

@@ -1,22 +1,36 @@
 ---
 title: vc-buttonGroup
-type: guide
+type: components
 order: 6
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-buttonGroup/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-buttonGroup)
 * [npm](https://www.npmjs.com/package/vc-buttonGroup)
 * [download](https://github.com/iwaimai-bi-fe/vc-buttonGroup/archive/master.zip)
 
 ## Install
 
-```npm
+``` npm
 npm install vc-buttonGroup --save
 ```
 
-```html
-//global varibale  vcbuttonGroup
-<script src='../dist/vc-buttonGroup.js'></script>
+``` js
+// build version
+import vcButtonGroup from 'vc-buttonGroup'
+
+// recommend for *.vue project for small bundle size
+import vcButtonGroup from 'vc-buttonGroup/src/ButtonGroup.vue'
+```
+
+``` js 
+// commonjs
+require('./dist/build.min.js')
+```
+
+``` html
+// script tag
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

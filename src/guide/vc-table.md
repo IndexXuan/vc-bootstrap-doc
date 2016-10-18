@@ -1,9 +1,10 @@
 ---
 title: vc-table
-type: guide
-order: 24
+type: components 
+order: 26
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-table/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-table)
 * [npm](https://www.npmjs.com/package/vc-table)
 * [download](https://github.com/iwaimai-bi-fe/vc-table/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-table --save
 ```
 
 ``` js
-import vcTable from 'vc-table' // build version
-import vcTable from 'vc-table/src/Table.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcTable from 'vc-table'
+
+// recommend for *.vue project for small bundle size
+import vcTable from 'vc-table/src/Table.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

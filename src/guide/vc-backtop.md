@@ -1,9 +1,10 @@
 ---
 title: vc-backtop
-type: guide
-order: 26
+type: components
+order: 32
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-backtop/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-backtop)
 * [npm](https://www.npmjs.com/package/vc-backtop)
 * [download](https://github.com/iwaimai-bi-fe/vc-backtop/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-backtop --save
 ```
 
 ``` js
-import vcBacktop from 'vc-backtop' // build version
-import vcBacktop from 'vc-backtop/src/Backtop.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcBacktop from 'vc-backtop'
+
+// recommend for *.vue project for small bundle size
+import vcBacktop from 'vc-backtop/src/Backtop.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

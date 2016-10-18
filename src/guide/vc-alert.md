@@ -1,9 +1,10 @@
 ---
 title: vc-alert
-type: guide
+type: components
 order: 13
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-alert/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-alert)
 * [npm](https://www.npmjs.com/package/vc-alert)
 * [download](https://github.com/iwaimai-bi-fe/vc-alert/archive/master.zip)
@@ -11,12 +12,15 @@ order: 13
 ## Install
 
 ``` npm
-npm install vc-button --save
+npm install vc-alert --save
 ```
 
 ``` js
-import vcAlert from 'vc-alert' // build version
-import vcAlert from 'vc-alert/src/Alert.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcAlert from 'vc-alert'
+
+// recommend for *.vue project for small bundle size
+import vcAlert from 'vc-alert/src/Alert.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

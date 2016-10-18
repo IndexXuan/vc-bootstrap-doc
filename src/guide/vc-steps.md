@@ -1,9 +1,10 @@
 ---
 title: vc-steps
-type: guide
-order: 12
+type: components 
+order: 30
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-steps/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-tag)
 * [npm](https://www.npmjs.com/package/vc-tag)
 * [download](https://github.com/iwaimai-bi-fe/vc-tag/archive/master.zip)
@@ -17,6 +18,7 @@ npm install vc-steps --save
 ``` js
 // build version
 import vcSteps from 'vc-steps'
+
 // recommend for *.vue project for small bundle size
 import vcSteps from 'vc-steps/src/Steps.vue'
 ```
@@ -28,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

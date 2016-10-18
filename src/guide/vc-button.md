@@ -1,9 +1,10 @@
 ---
 title: vc-button
-type: guide
-order: 3
+type: components
+order: 1
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-button/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-button)
 * [npm](https://www.npmjs.com/package/vc-button)
 * [download](https://github.com/iwaimai-bi-fe/vc-button/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-button --save
 ```
 
 ``` js
-import vcButton from 'vc-button' // build version
-import vcButton from 'vc-button/src/Button.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcButton from 'vc-button'
+
+// recommend for *.vue project for small bundle size
+import vcButton from 'vc-button/src/Button.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

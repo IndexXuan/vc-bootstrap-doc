@@ -1,7 +1,7 @@
 ---
 title: Introduction
-type: guide
-order: 1
+type: components
+order: 0
 ---
 
 vc-bootstrap,一个基于vue的组件库。

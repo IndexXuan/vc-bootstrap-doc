@@ -1,9 +1,10 @@
 ---
 title: vc-checkbox
-type: guide
-order: 8
+type: components
+order: 4
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-checkbox/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-checkbox)
 * [npm](https://www.npmjs.com/package/vc-checkbox)
 * [download](https://github.com/iwaimai-bi-fe/vc-checkbox/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-checkbox --save
 ```
 
 ``` js
-import vcCheckbox from 'vc-checkbox' // build version
-import vcCheckbox from 'vc-checkbox/src/Checkbox.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcCheckbox from 'vc-checkbox'
+
+// recommend for *.vue project for small bundle size
+import vcCheckbox from 'vc-checkbox/src/Checkbox.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

@@ -1,9 +1,10 @@
 ---
 title: vc-progress
-type: guide
-order: 23
+type: components
+order: 25
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-progress/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-progress)
 * [npm](https://www.npmjs.com/package/vc-progress)
 * [download](https://github.com/iwaimai-bi-fe/vc-progress/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-progress --save
 ```
 
 ``` js
-import vcProgress from 'vc-progress' // build version
-import vcProgress from 'vc-progress/src/Progress.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcProgress from 'vc-progress'
+
+// recommend for *.vue project for small bundle size
+import vcProgress from 'vc-progress/src/Progress.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

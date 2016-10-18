@@ -1,9 +1,10 @@
 ---
 title: vc-autocomplete
 type: guide
-order: 10
+order: 3
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-autocomplete/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-autocomplete)
 * [npm](https://www.npmjs.com/package/vc-autocomplete)
 * [download](https://github.com/iwaimai-bi-fe/vc-autocomplete/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-autocomplete --save
 ```
 
 ``` js
-import vcAutocomplete from 'vc-autocomplete' // build version
-import vcAutocomplete from 'vc-autocomplete/src/Autocomplete.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcAutocomplete from 'vc-autocomplete'
+
+// recommend for *.vue project for small bundle size
+import vcAutocomplete from 'vc-autocomplete/src/Autocomplete.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

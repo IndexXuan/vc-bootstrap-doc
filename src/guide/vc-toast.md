@@ -1,9 +1,10 @@
 ---
 title: vc-toast
-type: guide
-order: 17
+type: components 
+order: 18
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-toast/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-toast)
 * [npm](https://www.npmjs.com/package/vc-toast)
 * [download](https://github.com/iwaimai-bi-fe/vc-toast/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-toast --save
 ```
 
 ``` js
-import vcToast from 'vc-toast' // build version
-import vcToast from 'vc-toast/src/Toast.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcToast from 'vc-toast'
+
+// recommend for *.vue project for small bundle size
+import vcToast from 'vc-toast/src/Toast.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

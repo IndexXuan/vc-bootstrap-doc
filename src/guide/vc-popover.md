@@ -1,9 +1,10 @@
 ---
 title: vc-popover
-type: guide
-order: 21
+type: components 
+order: 23
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-popover/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-popover)
 * [npm](https://www.npmjs.com/package/vc-popover)
 * [download](https://github.com/iwaimai-bi-fe/vc-popover/archive/master.zip)
@@ -16,8 +17,11 @@ npm install vc-popover --save
 ```
 
 ``` js
-import vcPopover from 'vc-popover' // build version
-import vcPopover from 'vc-popover/src/Popover.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcPopover from 'vc-popover'
+
+// recommend for *.vue project for small bundle size
+import vcPopover from 'vc-popover/src/Popover.vue'
 ```
 
 ``` js 
@@ -27,7 +31,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

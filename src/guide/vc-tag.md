@@ -1,9 +1,10 @@
 ---
 title: vc-tag
-type: guide
-order: 12
+type: components
+order: 27
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-tag/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-tag)
 * [npm](https://www.npmjs.com/package/vc-tag)
 * [download](https://github.com/iwaimai-bi-fe/vc-tag/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-tag --save
 ```
 
 ``` js
-import vcTag from 'vc-tag' // build version
-import vcTag from 'vc-tag/src/Tag.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcTag from 'vc-tag'
+
+// recommend for *.vue project for small bundle size
+import vcTag from 'vc-tag/src/Tag.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

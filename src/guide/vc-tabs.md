@@ -1,9 +1,10 @@
 ---
 title: vc-tabs
-type: guide
-order: 29
+type: components 
+order: 31
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-tabs/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-tabs)
 * [npm](https://www.npmjs.com/package/vc-tabs)
 * [download](https://github.com/iwaimai-bi-fe/vc-tabs/archive/master.zip)
@@ -15,9 +16,14 @@ npm install vc-tabs --save
 ```
 
 ``` js
-import vcTabs from 'vc-tabs' // build version
-import vcTabs from 'vc-tabs/src/Tabs.vue' // recommend for *.vue project for small bundle size
-const vcTabset = vcTabs.vcTabset
+// build version
+import vcTabs from 'vc-tabs'
+
+// recommend for *.vue project for small bundle size
+import vcTabs from 'vc-tabs/src/Tabs.vue'
+
+// and get the child component
+const vcTab = vcTabs.vcTab
 ```
 
 ``` js 
@@ -27,7 +33,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage
@@ -95,7 +101,8 @@ tab title
 
 ```js
 import Vue from 'vue'
-import { vcTab, vcTabset } from '../src'
+import vcTabs from 'vcTabs'
+const vcTab = vcTabs.vcTab
 
 new Vue({
     el: '#app',
@@ -119,8 +126,8 @@ new Vue({
         }
     },
     components: {
-        vcTab,
-        vcTabset
+        vcTabs,
+        vcTab
     }
 })
 ```

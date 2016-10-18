@@ -1,9 +1,10 @@
 ---
 title: vc-tooltip
-type: guide
-order: 22
+type: components 
+order: 24
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-tooltip/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-tooltip)
 * [npm](https://www.npmjs.com/package/vc-tooltip)
 * [download](https://github.com/iwaimai-bi-fe/vc-tooltip/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-tooltip --save
 ```
 
 ``` js
-import vcTooltip from 'vc-tooltip' // build version
-import vcTooltip from 'vc-tooltip/src/Tooltip.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcTooltip from 'vc-tooltip'
+
+// recommend for *.vue project for small bundle size
+import vcTooltip from 'vc-tooltip/src/Tooltip.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

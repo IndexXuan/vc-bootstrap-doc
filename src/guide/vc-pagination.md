@@ -1,9 +1,10 @@
 ---
 title: vc-pagination
-type: guide
-order: 28
+type: components 
+order: 29
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-pagination/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-pagination)
 * [npm](https://www.npmjs.com/package/vc-pagination)
 * [download](https://github.com/iwaimai-bi-fe/vc-pagination/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-pagination --save
 ```
 
 ``` js
-import vcPagination from 'vc-pagination' // build version
-import vcPagination from 'vc-pagination/src/Pagination.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcPagination from 'vc-pagination'
+
+// recommend for *.vue project for small bundle size
+import vcPagination from 'vc-pagination/src/Pagination.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

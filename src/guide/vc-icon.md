@@ -1,9 +1,10 @@
 ---
 title: vc-icon
-type: guide
+type: components 
 order: 2
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-icon/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-icon)
 * [npm](https://www.npmjs.com/package/vc-icon)
 * [download](https://github.com/iwaimai-bi-fe/vc-icon/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-icon --save
 ```
 
 ``` js
-import vcIcon from 'vc-icon' // build version
-import vcIcon from 'vc-icon/src/Icon.vue' // recommand for *.vue project for small bundle size
+// build version
+import vcIcon from 'vc-icon'
+
+// recommand for *.vue project for small bundle size
+import vcIcon from 'vc-icon/src/Icon.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('dist/build.min.js')
 
 ```html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

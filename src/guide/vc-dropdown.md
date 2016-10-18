@@ -1,9 +1,10 @@
 ---
 title: vc-dropdown
-type: guide
-order: 11
+type: components
+order: 17
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-dropdown/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-dropdown)
 * [npm](https://www.npmjs.com/package/vc-dropdown)
 * [download](https://github.com/iwaimai-bi-fe/vc-dropdown/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-dropdown --save
 ```
 
 ``` js
-import vcDropdown from 'vc-dropdown' // build version
-import vcDropdown from 'vc-dropdown/src/Dropdown.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcDropdown from 'vc-dropdown'
+
+// recommend for *.vue project for small bundle size
+import vcDropdown from 'vc-dropdown/src/Dropdown.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

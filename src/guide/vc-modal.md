@@ -1,9 +1,10 @@
 ---
 title: vc-modal
-type: guide
-order: 18
+type: components 
+order: 20
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-modal/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-modal)
 * [npm](https://www.npmjs.com/package/vc-modal)
 * [download](https://github.com/iwaimai-bi-fe/vc-modal/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-modal --save
 ```
 
 ``` js
-import vcModal from 'vc-modal' // build version
-import vcModal from 'vc-modal/src/Modal.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcModal from 'vc-modal'
+
+// recommend for *.vue project for small bundle size
+import vcModal from 'vc-modal/src/Modal.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

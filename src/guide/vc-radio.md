@@ -1,9 +1,10 @@
 ---
 title: vc-radio
-type: guide
-order: 7
+type: components 
+order: 5
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-radio/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-radio)
 * [npm](https://www.npmjs.com/package/vc-radio)
 * [download](https://github.com/iwaimai-bi-fe/vc-radio/archive/master.zip)
@@ -15,8 +16,11 @@ npm install vc-radio --save
 ```
 
 ``` js
-import vcRadio from 'vc-radio' // build version
-import vcRadio from 'vc-radio/src/Radio.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcRadio from 'vc-radio'
+
+// recommend for *.vue project for small bundle size
+import vcRadio from 'vc-radio/src/Radio.vue'
 ```
 
 ``` js 
@@ -26,7 +30,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage

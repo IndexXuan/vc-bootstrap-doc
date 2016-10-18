@@ -1,9 +1,10 @@
 ---
 title: vc-card
-type: guide
-order: 14
+type: components
+order: 15
 ---
 
+* [online demo](https://iwaimai-bi-fe.github.io/vc-card/examples/)
 * [github](https://github.com/iwaimai-bi-fe/vc-card)
 * [npm](https://www.npmjs.com/package/vc-card)
 * [download](https://github.com/iwaimai-bi-fe/vc-card/archive/master.zip)
@@ -16,8 +17,11 @@ npm install vc-card --save
 ```
 
 ``` js
-import vcCard from 'vc-card' // build version
-import vcCard from 'vc-card/src/Card.vue' // recommend for *.vue project for small bundle size
+// build version
+import vcCard from 'vc-card'
+
+// recommend for *.vue project for small bundle size
+import vcCard from 'vc-card/src/Card.vue'
 ```
 
 ``` js 
@@ -27,7 +31,7 @@ require('./dist/build.min.js')
 
 ``` html
 // script tag
-<script src='dist/build.min.js'></script>
+<script src='./dist/build.min.js'></script>
 ```
 
 ## Usage
